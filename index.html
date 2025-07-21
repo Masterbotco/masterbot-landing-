@@ -20,6 +20,17 @@
   <title>MasterBot – Chatbot per centri estetici</title>
 </head>
 <body>
+<script>
+  const form = document.querySelector('form[action="https://formspree.io/f/mqaleryr"]');
+  form.addEventListener('submit', function() {
+    if (typeof gtag === 'function') {
+      gtag('event', 'early_access_submit', {
+        event_category: 'lead',
+        event_label: 'formspree'
+      });
+    }
+  });
+</script>
   <h1>MasterBot</h1>
   <p>Il chatbot 24/7 che riempie il calendario del tuo centro estetico.</p>
 
