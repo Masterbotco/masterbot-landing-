@@ -1,3 +1,19 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+  <title>MasterBot – Chatbot per centri estetici</title>
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-04D1BNMT6T"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-04D1BNMT6T');
+  </script>
+</head>
 <body>
   <h1>MasterBot</h1>
   <p>Il chatbot 24/7 che riempie il calendario del tuo centro estetico.</p>
@@ -12,23 +28,28 @@
 
   <!-- Script: dopo gli elementi -->
   <script>
-    const endpoint = "https://formspree.io/f/mqaleryr";
-    const form = document.getElementById('early-access');
-    const msg  = document.getElementById('msg');
+    (function(){
+      const endpoint = "https://formspree.io/f/mqaleryr";
+      const form = document.getElementById('early-access');
+      const msg  = document.getElementById('msg');
 
-    if (form) {
+      if (!form) return;
+
       form.addEventListener('submit', async function (e) {
         e.preventDefault();
 
-        const email = form.email.value;
+        const emailField = form.querySelector('input[name="email"]');
+        const email = emailField ? emailField.value : "";
 
         // Evento GA4
-        if (typeof gtag === 'function') {
-          gtag('event', 'early_access_submit', {
-            event_category: 'lead',
-            event_label: 'formspree'
-          });
-        }
+        try {
+          if (typeof gtag === 'function') {
+            gtag('event', 'early_access_submit', {
+              event_category: 'lead',
+              event_label: 'formspree'
+            });
+          }
+        } catch(_) {}
 
         // Invio AJAX a Formspree
         try {
@@ -45,11 +66,13 @@
             msg.textContent = "Errore, riprova più tardi.";
             msg.style.display = 'block';
           }
-        } catch (err) {
+        } catch(err){
           msg.textContent = "Errore di rete, riprova.";
           msg.style.display = 'block';
         }
       });
-    }
+    })();
   </script>
 </body>
+</html>
+
