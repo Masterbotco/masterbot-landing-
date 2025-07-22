@@ -1,17 +1,7 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-04D1BNMT6T"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-04D1BNMT6T');
-</script>
-
-
- <meta charset="UTF-8" />
+  <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1.0" />
   <title>MasterBot – Chatbot per centri estetici</title>
 
@@ -23,45 +13,37 @@
     gtag('js', new Date());
     gtag('config', 'G-04D1BNMT6T');
   </script>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
-  <title>MasterBot – Chatbot per centri estetici</title>
 </head>
 <body>
-<script>
-  const form = document.querySelector('form[action="https://formspree.io/f/mqaleryr"]');
-  form.addEventListener('submit', function() {
-    if (typeof gtag === 'function') {
-      gtag('event', 'early_access_submit', {
-        event_category: 'lead',
-        event_label: 'formspree'
-      });
-    }
-  });
-</script>
   <h1>MasterBot</h1>
   <p>Il chatbot 24/7 che riempie il calendario del tuo centro estetico.</p>
 
   <!-- FORM EARLY ACCESS -->
-  <form action="https://formspree.io/f/mqaleryr" method="POST">
+  <form id="early-access" action="https://formspree.io/f/mqaleryr" method="POST">
     <input type="email" name="email" placeholder="La tua email" required>
     <button type="submit">Iscriviti</button>
   </form>
 
-  <p>Dopo l'invio controlla la tua email: riceverai la conferma.</p>
+  <p id="msg" style="display:none;">Grazie! Controlla la tua email.</p>
 
-<script>
-  const form = document.querySelector('form[action="https://formspree.io/f/mqaleryr"]');
-  if(form){
-    form.addEventListener('submit', function(){
-      if (typeof gtag === 'function') {
-        gtag('event', 'early_access_submit', {
-          event_category: 'lead',
-          event_label: 'formspree'
-        });
-      }
-    });
-  }
-</script>
+  <!-- GA4 event + messaggio conferma -->
+  <script>
+    const form = document.getElementById('early-access');
+    const msg  = document.getElementById('msg');
+
+    if (form) {
+      form.addEventListener('submit', function () {
+        // evento GA4
+        if (typeof gtag === 'function') {
+          gtag('event', 'early_access_submit', {
+            event_category: 'lead',
+            event_label: 'formspree'
+          });
+        }
+        // mostra messaggio (il redirect avverrà comunque)
+        if (msg) msg.style.display = 'block';
+      });
+    }
+  </script>
 </body>
 </html>
