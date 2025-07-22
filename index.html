@@ -1,6 +1,14 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-04D1BNMT6T"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-04D1BNMT6T');
+</script>
 
 
  <meta charset="UTF-8" />
@@ -41,5 +49,19 @@
   </form>
 
   <p>Dopo l'invio controlla la tua email: riceverai la conferma.</p>
+
+<script>
+  const form = document.querySelector('form[action="https://formspree.io/f/mqaleryr"]');
+  if(form){
+    form.addEventListener('submit', function(){
+      if (typeof gtag === 'function') {
+        gtag('event', 'early_access_submit', {
+          event_category: 'lead',
+          event_label: 'formspree'
+        });
+      }
+    });
+  }
+</script>
 </body>
 </html>
