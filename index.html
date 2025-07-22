@@ -1,43 +1,55 @@
 <body>
-<script>
-  const endpoint = "https://formspree.io/f/mqaleryr";
-  const form = document.getElementById('early-access');
-  const msg  = document.getElementById('msg');
+  <h1>MasterBot</h1>
+  <p>Il chatbot 24/7 che riempie il calendario del tuo centro estetico.</p>
 
-  form.addEventListener('submit', async function (e) {
-    e.preventDefault(); // evita redirect
+  <!-- FORM EARLY ACCESS -->
+  <form id="early-access">
+    <input type="email" name="email" placeholder="La tua email" required>
+    <button type="submit">Iscriviti</button>
+  </form>
 
-    const email = form.email.value;
+  <p id="msg" style="display:none;">Grazie! Controlla la tua email.</p>
 
-    // 1) Evento GA4 PRIMA dell'invio
-    if (typeof gtag === 'function') {
-      gtag('event', 'early_access_submit', {
-        event_category: 'lead',
-        event_label: 'formspree'
+  <!-- Script: dopo gli elementi -->
+  <script>
+    const endpoint = "https://formspree.io/f/mqaleryr";
+    const form = document.getElementById('early-access');
+    const msg  = document.getElementById('msg');
+
+    if (form) {
+      form.addEventListener('submit', async function (e) {
+        e.preventDefault();
+
+        const email = form.email.value;
+
+        // Evento GA4
+        if (typeof gtag === 'function') {
+          gtag('event', 'early_access_submit', {
+            event_category: 'lead',
+            event_label: 'formspree'
+          });
+        }
+
+        // Invio AJAX a Formspree
+        try {
+          const res = await fetch(endpoint, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ email })
+          });
+
+          if (res.ok) {
+            msg.style.display = 'block';
+            form.reset();
+          } else {
+            msg.textContent = "Errore, riprova più tardi.";
+            msg.style.display = 'block';
+          }
+        } catch (err) {
+          msg.textContent = "Errore di rete, riprova.";
+          msg.style.display = 'block';
+        }
       });
     }
-
-    // 2) Invio AJAX a Formspree
-    try {
-      const res = await fetch(endpoint, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email })
-      });
-
-      if (res.ok) {
-        msg.style.display = 'block';
-        form.reset();
-      } else {
-        msg.textContent = "Errore, riprova più tardi.";
-        msg.style.display = 'block';
-      }
-    } catch (err) {
-      msg.textContent = "Errore di rete, riprova.";
-      msg.style.display = 'block';
-    }
-  });
-</script>
-
- 
+  </script>
 </body>
