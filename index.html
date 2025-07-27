@@ -3,10 +3,13 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1.0" />
-  <title>MasterBot – Il chatbot AI che risponde su Sito, WhatsApp e Social</title>
+  <title>MasterBot – Chatbot AI che risponde su Sito, WhatsApp e Social</title>
 
   <!-- Tailwind -->
   <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Font Awesome (icone brand) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
   <!-- Google tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-04D1BNMT6T"></script>
@@ -19,10 +22,10 @@
 </head>
 <body class="bg-white text-gray-800 antialiased">
 
-  <!-- HERO -->
+  <!-- HERO ------------------------------------------------------------->
   <header class="py-16 text-center bg-white">
     <div class="max-w-3xl mx-auto px-6">
-      <img src="logo.png" alt="MasterBot" class="mx-auto w-16 mb-5" />
+      <img src="logo.png" alt="MasterBot" class="mx-auto w-32 mb-5" />
       <h1 class="text-4xl sm:text-5xl font-bold leading-tight text-slate-900">MasterBot</h1>
       <p class="mt-4 text-lg sm:text-xl text-slate-600">
         Il chatbot AI che risponde automaticamente su <b>Sito Web</b>, <b>WhatsApp</b>, <b>Instagram</b> e <b>Facebook</b>.
@@ -31,48 +34,40 @@
 
       <!-- FORM -->
       <form id="early-access" class="mt-8 flex flex-col sm:flex-row gap-3 justify-center max-w-xl mx-auto">
-        <input type="email" name="email" placeholder="La tua email" required
-               class="flex-1 px-4 py-3 rounded-md border border-slate-300 text-gray-900 focus:outline-none focus:ring-2 focus:ring-orange-500" />
-        <button type="submit" class="bg-orange-500 hover:bg-orange-600 transition px-6 py-3 rounded-md font-semibold text-white">
-          Provalo gratis 14 giorni
-        </button>
+        <input type="email" name="email" placeholder="La tua email" required class="flex-1 px-4 py-3 rounded-md border border-slate-300 text-gray-900 focus:outline-none focus:ring-2 focus:ring-orange-500" />
+        <button type="submit" class="bg-orange-500 hover:bg-orange-600 transition px-6 py-3 rounded-md font-semibold text-white">Provalo gratis 14 giorni</button>
       </form>
       <p class="mt-2 text-xs text-slate-400">Iscrivendoti accetti la <a href="#privacy" class="underline">privacy policy</a>.</p>
       <p id="msg" class="mt-3 text-sm hidden text-green-600">Grazie! Controlla la tua email.</p>
     </div>
   </header>
 
-  <!-- CANALI -->
+  <!-- CANALI ----------------------------------------------------------->
   <section class="py-12" id="channels">
     <div class="max-w-5xl mx-auto px-6 text-center">
       <h2 class="text-2xl sm:text-3xl font-semibold mb-10 text-slate-900">Un solo bot, tutti i canali</h2>
       <div class="grid grid-cols-2 sm:grid-cols-4 gap-6 text-sm">
-
         <div class="rounded-xl border border-slate-100 p-6 shadow-sm">
-          <img src="https://cdn.simpleicons.org/googlechrome/0F172A" class="w-10 h-10 mx-auto mb-2" alt="Sito Web">
+          <img src="download.jpeg" alt="Sito Web" class="mx-auto w-12 h-12 mb-2" />
           <p>Sito Web</p>
         </div>
-
         <div class="rounded-xl border border-slate-100 p-6 shadow-sm">
-          <img src="https://cdn.simpleicons.org/whatsapp/25D366" class="w-10 h-10 mx-auto mb-2" alt="WhatsApp">
+          <i class="fa-brands fa-whatsapp text-4xl" style="color:#25D366"></i>
           <p>WhatsApp</p>
         </div>
-
         <div class="rounded-xl border border-slate-100 p-6 shadow-sm">
-          <img src="https://cdn.simpleicons.org/instagram/E4405F" class="w-10 h-10 mx-auto mb-2" alt="Instagram DM">
+          <i class="fa-brands fa-instagram text-4xl" style="color:#E4405F"></i>
           <p>Instagram DM</p>
         </div>
-
         <div class="rounded-xl border border-slate-100 p-6 shadow-sm">
-          <img src="https://cdn.simpleicons.org/facebookmessenger/00B2FF" class="w-10 h-10 mx-auto mb-2" alt="Facebook Messenger">
+          <img src="https://cdn.simpleicons.org/facebook/1877F2" alt="Facebook Messenger" class="mx-auto w-12 h-12 mb-2" />
           <p>Facebook Messenger</p>
         </div>
-
       </div>
     </div>
   </section>
 
-  <!-- BENEFIT -->
+  <!-- BENEFIT ---------------------------------------------------------->
   <section class="py-12 bg-slate-50">
     <div class="max-w-5xl mx-auto px-6">
       <h2 class="text-2xl sm:text-3xl font-semibold text-center mb-12 text-slate-900">Cosa fa per te</h2>
@@ -96,7 +91,7 @@
     </div>
   </section>
 
-  <!-- TARGET -->
+  <!-- TARGET ----------------------------------------------------------->
   <section class="py-12">
     <div class="max-w-5xl mx-auto px-6 text-center">
       <h2 class="text-2xl sm:text-3xl font-semibold mb-10 text-slate-900">A chi serve MasterBot</h2>
@@ -111,7 +106,7 @@
     </div>
   </section>
 
-  <!-- COME FUNZIONA -->
+  <!-- COME FUNZIONA --------------------------------------------------->
   <section class="py-12 bg-slate-50">
     <div class="max-w-3xl mx-auto px-6 text-center">
       <h2 class="text-2xl sm:text-3xl font-semibold mb-8 text-slate-900">Come funziona</h2>
@@ -124,7 +119,7 @@
     </div>
   </section>
 
-  <!-- FAQ -->
+  <!-- FAQ -------------------------------------------------------------->
   <section class="py-16" id="faq">
     <div class="max-w-4xl mx-auto px-6">
       <h2 class="text-2xl sm:text-3xl font-semibold text-center mb-10 text-slate-900">Domande frequenti</h2>
@@ -149,7 +144,7 @@
     </div>
   </section>
 
-  <!-- PRICING -->
+  <!-- PRICING ---------------------------------------------------------->
   <section class="py-16 bg-white" id="pricing">
     <div class="max-w-3xl mx-auto px-6 text-center">
       <h2 class="text-2xl sm:text-3xl font-semibold mb-8 text-slate-900">Offerta Lancio</h2>
@@ -166,24 +161,24 @@
     </div>
   </section>
 
-  <!-- PRIVACY -->
+  <!-- PRIVACY ---------------------------------------------------------->
   <section id="privacy" class="py-12 bg-white text-xs text-slate-500 max-w-3xl mx-auto px-6">
     <h3 class="text-sm font-semibold mb-2 text-slate-700">Privacy Policy</h3>
     <p>Raccogliamo esclusivamente l'indirizzo email per contattarti riguardo a MasterBot. I dati sono inviati e gestiti tramite Formspree e conservati solo per il tempo necessario a fornirti il servizio. Puoi richiederne la cancellazione in qualsiasi momento scrivendo a <a href="mailto:info@masterbot.co" class="underline">info@masterbot.co</a>.</p>
   </section>
 
-  <!-- FOOTER -->
+  <!-- FOOTER ----------------------------------------------------------->
   <footer class="text-center py-8 bg-slate-100 text-sm text-slate-500">
     © 2025 MasterBot • <a href="mailto:info@masterbot.co" class="underline">info@masterbot.co</a>
   </footer>
 
-  <!-- STICKY CTA MOBILE -->
+  <!-- STICKY CTA MOBILE ----------------------------------------------->
   <div class="fixed bottom-0 inset-x-0 sm:hidden bg-slate-900 text-white py-3 px-4 flex justify-between items-center z-50">
     <span class="text-sm font-semibold">Provalo gratis 14 gg</span>
-    <a href="#early-access" id="sticky-cta" class="bg-orange-500 text-white font-semibold px-4 py-2 rounded">Vai &raquo;</a>
+    <a href="#early-access" id="sticky-cta" class="bg-orange-500 text-white font-semibold px-4 py-2 rounded">Vai »</a>
   </div>
 
-  <!-- FORM HANDLER + GA EVENTS -->
+  <!-- FORM HANDLER + GA EVENTS ---------------------------------------->
   <script>
     (function(){
       const endpoint = "https://formspree.io/f/mqaleryr";
@@ -222,11 +217,7 @@
       }
 
       // Tracking click CTA
-      const trackClick = function(id){
-        if (typeof gtag === 'function') {
-          gtag('event', 'cta_click', { event_category: 'cta', event_label: id });
-        }
-      };
+      const trackClick = function(id){ if (typeof gtag === 'function') { gtag('event', 'cta_click', { event_category: 'cta', event_label: id }); } };
       document.getElementById('mid-cta')?.addEventListener('click', function(){ trackClick('mid'); });
       document.getElementById('sticky-cta')?.addEventListener('click', function(){ trackClick('sticky'); });
     })();
